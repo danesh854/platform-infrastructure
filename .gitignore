@@ -17,10 +17,10 @@ crash.*.log
 
 # Plan files
 *.tfplan
+  tfplan
 
 # OS files
 .DS_Store
-
 # IDE
 .vscode/
 .idea/
