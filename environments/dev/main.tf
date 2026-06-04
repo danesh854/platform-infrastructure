@@ -38,3 +38,43 @@ module "networking" {
 
 
 }
+module "iam" {
+
+
+  source = "../../modules/iam"
+
+
+  project_name = "enterprise-dev"
+
+}
+
+
+
+module "eks" {
+
+
+  source = "../../modules/eks"
+
+
+
+  project_name = "enterprise-dev"
+
+
+
+  cluster_version = "1.33"
+
+
+
+  private_subnets = module.networking.private_subnets
+
+
+
+  cluster_role_arn = module.iam.eks_cluster_role_arn
+
+
+
+  node_role_arn = module.iam.node_role_arn
+
+
+
+}
